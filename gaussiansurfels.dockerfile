@@ -23,16 +23,20 @@ RUN wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -
 
 ENV PATH=$CONDA_DIR/bin:$PATH
 
-# 複製專案
+# 專案位址建立建立
+WORKDIR /workspace
 RUN git clone https://github.com/yolk-lu/gaussian_surfels.git
+
+# 進入專案 (執行environment.yml)
+WORKDIR /workspace/gaussian_surfels
 
 # 建立 conda 環境
 RUN conda init bash && \
     conda env create -f environment.yml && \
     conda clean -afy
 
-# 自動進gaussian splatting 
-SHELL ["/bin/bash", "-c"]
+# 自動進gaussian surfels 
 RUN echo "conda activate gaussian_surfels" >> ~/.bashrc
 
+SHELL ["/bin/bash", "-l" ,"-c"]
 CMD ["/bin/bash"]
