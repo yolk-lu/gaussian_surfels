@@ -38,5 +38,6 @@ RUN conda init bash && \
 # 自動進gaussian surfels 
 RUN echo "conda activate gaussian_surfels" >> ~/.bashrc
 
+# cmdline
 SHELL ["/bin/bash", "-l" ,"-c"]
 CMD ["/bin/bash"]
