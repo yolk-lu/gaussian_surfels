@@ -94,3 +94,18 @@ python eval.py --dataset bmvs --source_path path/to/your/data/directory --mesh_p
 }</code></pre>
   </div>
 </section>
+
+## 建置 + 安裝套件 :
+```shell
+docker build -t --name gaussian_surfels -f gaussian_surfels.Dockerfile .
+docker run --gpus all -it  gaussian_surfels
+```
+
+```shell
+# 因為已經有初始檔 => 不須git diff-gaussian-rasterization、simple-knn等
+cd gaussian_surfels/submodules/diff-gaussian-rasterization
+pip install -e .
+
+cd gaussian_surfels/submodules/simple-knn
+pip install -e .
+```
