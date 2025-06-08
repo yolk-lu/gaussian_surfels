@@ -30,7 +30,7 @@ parser.set_defaults(store_name='NONE')
 
 args = parser.parse_args()
 
-root_dir = './pretrained_models/'
+root_dir = './tools/pretrained_models/'
 
 trans_topil = transforms.ToPILImage()
 
@@ -84,7 +84,7 @@ def save_outputs(img_path, output_file_name):
     # print("Load image shape ", HEIGHT, WIDTH)
     # exit()
 
-    INPUT_WIDTH = WIDTH // 32 * 32
+    INPUT_WIDTH = WIDTH // 32 * 32 
     INPUT_HEIGHT = HEIGHT // 32 * 32
     # INPUT_WIDTH = 1280 // 2
     # INPUT_HEIGHT = 960 //2
